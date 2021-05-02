@@ -10,6 +10,15 @@ const withPlugins = require("next-compose-plugins");
 module.exports = withPlugins([
   withFonts,
   withImages,
+  [
+    withTM({
+      transpileModules: [
+        "react-native",
+        "styled-components",
+        "styled-components/native",
+      ],
+    }),
+  ],
   withOffline({
     workboxOpts: {
       swDest: "workbox-service-worker.js",
