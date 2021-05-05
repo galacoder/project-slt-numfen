@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   WingBlank,
   WhiteSpace,
@@ -7,41 +7,84 @@ import {
   Provider,
   DatePicker,
   Button,
+  Modal,
+  DatePickerView,
 } from "@ant-design/react-native";
-import { Text, View, Image, StyleSheet, Platform } from "react-native";
-import smartie from "../../public/smartie.png";
+import { Text, StyleSheet, Platform, SafeAreaView } from "react-native";
+import { DatePickerModal } from "react-native-paper-dates";
+
 import enUS from "@ant-design/react-native/lib/locale-provider/en_US";
 import customTheme from "../../styles/customTheme";
 
+import Smartie from "../components/Smartie";
+import AppBar from "../components/AppBar";
+
 export default function Landing() {
+  const [open, setOpen] = React.useState(false);
+  const [date, setDate] = React.useState(undefined);
+
+  const onDismissSingle = React.useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+
+  const onConfirmSingle = React.useCallback(
+    (params) => {
+      setOpen(false);
+      setDate(params.date);
+      console.log(date);
+    },
+    [setOpen, setDate]
+  );
+
   return (
     <>
-      <WingBlank style={styles.container}>
-        <View style={styles.imageContainer}>
-          <Image source={smartie} style={styles.image} />
-        </View>
-        <WhiteSpace />
-        <Text style={styles.text}>
-          Welcome to Sang Le Tech App Numerology App from landing page. I want
-          to show Yunnie how cool 👋
-        </Text>
-        <WhiteSpace />
-        <WhiteSpace />
-        <Provider locale={enUS} theme={customTheme}>
+      <SafeAreaView>
+        <AppBar />
+        <WingBlank style={styles.container}>
+          <Smartie />
+          <WhiteSpace />
+          <Text style={styles.text}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+          <WhiteSpace />
+          <WhiteSpace />
           <InputItem placeholder="Tên của bạn là gì?" />
           <WhiteSpace />
           <WhiteSpace />
 
-          <DatePicker mode="date" format="YYYY-MM-DD">
-            <List.Item>Ngày Sinh</List.Item>
-          </DatePicker>
+          {Platform.OS === "web" && (
+            <>
+              <Button onPress={() => setOpen(true)}> Ngày Sinh</Button>
+              <DatePickerModal
+                mode="single"
+                visible={open}
+                onDismiss={onDismissSingle}
+                date={date}
+                onConfirm={onConfirmSingle}
+              />
+            </>
+          )}
+          {!(Platform.OS === "web") && (
+            <>
+              <Provider locale={enUS} theme={customTheme}>
+                <WhiteSpace />
+                <WhiteSpace />
 
+                <DatePicker mode="date" format="YYYY-MM-DD">
+                  <List.Item>Ngày Sinh</List.Item>
+                </DatePicker>
+              </Provider>
+            </>
+          )}
           <WhiteSpace />
           <WhiteSpace />
           <WhiteSpace />
           <Button> Tính Ngay 👉🏻</Button>
-        </Provider>
-      </WingBlank>
+        </WingBlank>
+      </SafeAreaView>
     </>
   );
 }
@@ -49,18 +92,13 @@ export default function Landing() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   text: {
     fontSize: 16,
   },
-  imageContainer: {
-    width: 100,
-    height: 183,
-  },
-  image: {
-    width: 128,
-    height: 128,
-  },
+
   input: {
     borderWidth: 1,
     borderRadius: 6,
