@@ -9,7 +9,7 @@ export default function App() {
     //   <Text style={styles.text}>Welcome to Expo + Next.js 👋</Text>
     // </View>
     <Container>
-      <Title>Hello world from styled component</Title>
+      <Title>Hello world from Test</Title>
       <Smartie />
     </Container>
   );

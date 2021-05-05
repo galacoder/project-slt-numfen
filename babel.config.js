@@ -6,4 +6,5 @@ module.exports = {
   presets: ["babel-preset-expo"],
   plugins: ["@babel/plugin-proposal-class-properties"],
   plugins: [["import", { libraryName: "@ant-design/react-native" }]],
+  plugins: [["styled-components", { ssr: true }]],
 };
