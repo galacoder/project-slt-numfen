@@ -1,17 +1,20 @@
 import * as React from "react";
 import styled from "styled-components/native";
+import { Button } from "react-native-paper";
 
 export default function Result({ navigation }) {
   return (
     <>
       <Title>This is result page</Title>
-      <LandingButton
-        title="Back to Landing"
-        onPress={() => navigation.navigate("Landing")}
-      />
+      <LandingButton onPress={() => navigation.navigate("Landing")}>
+        Back Home
+      </LandingButton>
     </>
   );
 }
 
 const Title = styled.Text``;
-const LandingButton = styled.Button``;
+const LandingButton = styled(Button).attrs({
+  icon: "camera",
+  mode: "contained",
+})``;
