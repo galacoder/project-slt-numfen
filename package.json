@@ -20,7 +20,10 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@expo/next-adapter": "~2.1.52"
+    "@expo/next-adapter": "~2.1.52",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "eslint": "^7.25.0",
+    "prettier": "^2.2.1"
   },
   "scripts": {
     "start": "expo start",
@@ -28,7 +31,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "next build"
+    "build": "next build",
+    "lint": "eslint . --ext .js"
   },
   "private": true
 }
