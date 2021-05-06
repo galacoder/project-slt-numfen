@@ -1,7 +1,8 @@
 // @generated: @expo/next-adapter@2.1.52
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import styled from "styled-components/native";
+
+import { Link } from "expo-next-react-navigation";
 
 export default function App() {
   return (
@@ -11,6 +12,8 @@ export default function App() {
     <Container>
       <Title>Hello world from styled component</Title>
       <Smartie />
+
+      <Link routeName="test">Go</Link>
     </Container>
   );
 }
