@@ -2,15 +2,11 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { Link } from "expo-next-react-navigation";
-
 export default function App() {
   return (
     <Container>
       <Title>Hello world from styled component</Title>
       <Smartie />
-
-      <Link routeName="test">Go</Link>
     </Container>
   );
 }
