@@ -4,6 +4,9 @@ import styled from "styled-components/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import Landing from "./screens/landing";
 import AppBar from "../components/AppBar";
+import Result from "./screens/results";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const theme = {
   ...DefaultTheme,
@@ -14,12 +17,18 @@ const theme = {
     accent: "#f1c40f",
   },
 };
+
+const Stack = createStackNavigator();
 export default function App() {
   return (
     <PaperProvider>
       <Container>
-        <AppBar />
-        <Landing />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Landing">
+            <Stack.Screen name="Landing" component={Landing} />
+            <Stack.Screen name="Result" component={Result} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </Container>
     </PaperProvider>
   );
@@ -27,6 +36,4 @@ export default function App() {
 
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
-  align-items: center;
 `;

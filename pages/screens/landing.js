@@ -3,11 +3,15 @@ import React from "react";
 import styled from "styled-components/native";
 import Smartie from "../../components/Smartie";
 
-export default function Landing() {
+export default function Landing({ navigation }) {
   return (
     <>
       <Title>Hello world from landing</Title>
       <Smartie />
+      <ResultButton
+        title="Next page"
+        onPress={() => navigation.navigate("Result")}
+      />
     </>
   );
 }
@@ -15,3 +19,5 @@ export default function Landing() {
 const Title = styled.Text`
   font-size: 17px;
 `;
+
+const ResultButton = styled.Button``;
