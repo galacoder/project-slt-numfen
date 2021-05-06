@@ -7,4 +7,10 @@ module.exports = {
   plugins: ["@babel/plugin-proposal-class-properties"],
   plugins: [["import", { libraryName: "@ant-design/react-native" }]],
   plugins: [["styled-components", { ssr: true }]],
+  presets: ["module:metro-react-native-babel-preset"],
+  env: {
+    production: {
+      plugins: ["react-native-paper/babel"],
+    },
+  },
 };
