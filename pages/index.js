@@ -2,11 +2,14 @@
 import React from "react";
 import styled from "styled-components/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
 import Landing from "./screens/landing";
 import AppBar from "../components/AppBar";
 import Result from "./screens/results";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import Payment from "./screens/payment";
 
 const theme = {
   ...DefaultTheme,
@@ -27,6 +30,7 @@ export default function App() {
           <Stack.Navigator initialRouteName="Landing">
             <Stack.Screen name="Landing" component={Landing} />
             <Stack.Screen name="Result" component={Result} />
+            <Stack.Screen name="Payment" component={Payment} />
           </Stack.Navigator>
         </NavigationContainer>
       </Container>
