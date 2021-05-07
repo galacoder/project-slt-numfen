@@ -30,6 +30,7 @@
     "react-native-screens": "~2.15.2",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "^0.13.18",
+    "react-notion": "^0.9.3",
     "react-refresh": "^0.8.2",
     "styled-components": "^5.3.0"
   },
