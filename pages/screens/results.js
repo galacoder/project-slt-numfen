@@ -5,7 +5,7 @@ import { ScrollView } from "react-native";
 
 import Smartie from "../../components/Smartie";
 import ContentBox from "../../components/ContentBox";
-import NotionPage from "../../lib/getNotionPage";
+import NotionPage from "../../lib/getNotionPagePotion";
 
 export default function Result({ navigation }) {
   return (
