@@ -39,8 +39,13 @@
     "@babel/core": "~7.9.0",
     "@expo/next-adapter": "~2.1.52",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.5",
+    "@types/react-native": "^0.64.5",
+    "@types/react-test-renderer": "^17.0.1",
     "eslint": "^7.25.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "start": "expo start",
