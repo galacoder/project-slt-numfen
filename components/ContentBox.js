@@ -12,4 +12,5 @@ export default function ContentBox(props) {
 
 const Content = styled.Text`
   font-size: 17px;
+  text-align: center;
 `;

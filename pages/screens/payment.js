@@ -10,7 +10,11 @@ export default function Payment({ navigation }) {
     <>
       <Smartie />
       <ContentBox text="This is payment page" />
-      <SingleButton onPress={() => navigation.navigate("Result")} />
+      <SingleButton name="Momo" onPress={() => navigation.navigate("Result")} />
+      <SingleButton
+        name="VNPay"
+        onPress={() => navigation.navigate("Result")}
+      />
     </>
   );
 }

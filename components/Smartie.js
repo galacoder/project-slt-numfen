@@ -14,12 +14,15 @@ export default function Smartie() {
 const Container = styled.View`
   width: 168px;
   height: 168px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 `;
 
 const Image = styled.ImageBackground.attrs({
-  source: require("../public/Smartie.jpg"),
+  source: require("../public/Smartie.png"),
 })`
-  width: 60px;
-  height: 60px;
-  align-self: center;
+  width: 224px;
+  height: 240px;
+  transform: scale(0.4);
 `;

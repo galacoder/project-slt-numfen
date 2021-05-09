@@ -2,8 +2,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import Smartie from "../../components/Smartie";
-import { Button, TextInput } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import ContentBox from "../../components/ContentBox";
+
+import MyButton from "../../components/SingleButton";
 
 export default function Landing({ navigation }) {
   const [text, setText] = React.useState("");
@@ -11,22 +13,16 @@ export default function Landing({ navigation }) {
   return (
     <>
       <Smartie />
-      <ContentBox text="This is landing page" />
+      <ContentBox text="Xin chào bạn. Mình tên là Smartie. Hôm nay mình rất vui vì mình sẽ giúp bạn tìm hiểu được con người thật của bạn qua Thần Số Học." />
       <NameInput onChangeText={(text) => setText(text)} />
       <DateInput onChangeText={(date) => setDate(date)} />
-      <CalculateButton onPress={() => navigation.navigate("Result")}>
-        Calculate
-      </CalculateButton>
+      <MyButton
+        name="Calculate"
+        onPress={() => navigation.navigate("Result")}
+      />
     </>
   );
 }
-
-const CalculateButton = styled(Button).attrs({
-  icon: "camera",
-  mode: "contained",
-})`
-  width: 200px;
-`;
 
 const NameInput = styled(TextInput).attrs({
   label: "Tên của bạn là gì?",

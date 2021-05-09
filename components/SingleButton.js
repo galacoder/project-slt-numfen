@@ -9,6 +9,9 @@ export default function SingleButton(props) {
       <MyButton
         icon={props.iconName || "camera"}
         mode={props.modeName || "contained"}
+        width={props.width}
+        onPress={props.onPress}
+        align={props.align}
       >
         {props.name || "Button"}
       </MyButton>
@@ -17,5 +20,6 @@ export default function SingleButton(props) {
 }
 
 const MyButton = styled(Button)`
-  width: 200px;
+  width: ${(props) => props.width || "200px"};
+  align-self: ${(props) => props.align || "center"};
 `;

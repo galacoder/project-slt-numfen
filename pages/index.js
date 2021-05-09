@@ -7,7 +7,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Landing from "./screens/landing";
-import AppBar from "../components/AppBar";
 import Result from "./screens/results";
 import Payment from "./screens/payment";
 
@@ -28,9 +27,25 @@ export default function App() {
       <Container>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Landing">
-            <Stack.Screen name="Landing" component={Landing} />
-            <Stack.Screen name="Result" component={Result} />
-            <Stack.Screen name="Payment" component={Payment} />
+            <Stack.Screen
+              name="Landing"
+              component={Landing}
+              options={{ title: "Thần Số Học", headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Result"
+              component={Result}
+              options={{
+                headerLeft: () => null,
+                title: "Kết Quả",
+                headerTitleAlign: "center",
+              }}
+            />
+            <Stack.Screen
+              name="Payment"
+              component={Payment}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Container>
@@ -40,4 +55,6 @@ export default function App() {
 
 const Container = styled.View`
   flex: 1;
+  margin: 0 auto;
+  width: 100%;
 `;
