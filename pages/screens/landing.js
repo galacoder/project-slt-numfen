@@ -10,6 +10,7 @@ import { SpacerS, SpacerM, SpacerL } from "../../styles/spacing";
 import Layout from "../../components/Layout";
 import { Caption } from "../../styles/fonts";
 import { DatePickerModal } from "react-native-paper-dates";
+import moment from "moment";
 
 export default function Landing({ navigation }) {
   const [text, setText] = React.useState("");
@@ -36,7 +37,10 @@ export default function Landing({ navigation }) {
       <SpacerM />
       <NameInput onChangeText={(text) => setText(text)} />
       <SpacerS />
-      <DateInput onFocus={() => setOpen(true)} value={date.toString()} />
+      <DateInput
+        onFocus={() => setOpen(true)}
+        value={date === "" ? "" : moment(date).format("DD/MM/YYYY")}
+      />
       <DatePickerModal
         mode="single"
         visible={open}
