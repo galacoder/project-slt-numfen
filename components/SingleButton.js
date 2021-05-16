@@ -20,6 +20,8 @@ export default function SingleButton(props) {
 }
 
 const MyButton = styled(Button)`
-  width: ${(props) => props.width || "200px"};
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "48px"};
   align-self: ${(props) => props.align || "center"};
+  justify-content: center;
 `;

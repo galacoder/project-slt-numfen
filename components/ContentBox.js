@@ -11,4 +11,6 @@ export default function ContentBox(props) {
   );
 }
 
-const Content = styled(Caption)``;
+const Content = styled(Caption)`
+  text-align: center;
+`;

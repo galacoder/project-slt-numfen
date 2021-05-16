@@ -5,21 +5,23 @@ import Smartie from "../../components/Smartie";
 import ContentBox from "../../components/ContentBox";
 import SingleButton from "../../components/SingleButton";
 import Layout from "../../components/Layout";
-import { SpacerS, SpacerM, SpacerL } from "../../styles/spacing";
-export default function Payment({ navigation }) {
+import { SpacerL, SpacerM } from "../../styles/spacing";
+
+export default function FailurePayment({ navigation }) {
   return (
     <Layout>
       <Smartie />
       <SpacerM />
-      <ContentBox text="This is Main Payment page" />
+      <ContentBox text="This is Failure page" />
       <SpacerL />
-      <SingleButton name="Momo" onPress={() => navigation.navigate("Momo")} />
-      <SpacerM />
-      <SingleButton name="Thẻ" onPress={() => navigation.navigate("Baokim")} />
+      <SingleButton
+        name="Thử Lại"
+        onPress={() => navigation.navigate("Payment")}
+      />
       <SpacerM />
       <SingleButton
-        name="Thanh Toán Thất Bại"
-        onPress={() => navigation.navigate("Failure")}
+        name="Liên Hệ Giúp Đỡ"
+        onPress={() => navigation.navigate("Help")}
       />
     </Layout>
   );

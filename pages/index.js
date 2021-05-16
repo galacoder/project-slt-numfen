@@ -7,9 +7,15 @@ import { Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Landing from "./screens/landing";
-import Result from "./screens/results";
-import Payment from "./screens/payment";
+import Landing from "./screens/Landing";
+import Result from "./screens/Results";
+import Payment from "./screens/Payment";
+import Momo from "./screens/MomoPayment";
+import Baokim from "./screens/BaokimPayment";
+import Success from "./screens/SuccessPayment";
+import Failure from "./screens/FailurePayment";
+import Help from "./screens/Help";
+import Main from "./screens/Main";
 
 const theme = {
   ...DefaultTheme,
@@ -45,6 +51,36 @@ export default function App() {
             <Stack.Screen
               name="Payment"
               component={Payment}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Momo"
+              component={Momo}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Baokim"
+              component={Baokim}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Success"
+              component={Success}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Failure"
+              component={Failure}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Help"
+              component={Help}
+              options={{ headerLeft: () => null, headerTitleAlign: "center" }}
+            />
+            <Stack.Screen
+              name="Main"
+              component={Main}
               options={{ headerLeft: () => null, headerTitleAlign: "center" }}
             />
           </Stack.Navigator>
