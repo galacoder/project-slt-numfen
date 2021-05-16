@@ -8,10 +8,27 @@ import ContentBox from "../../components/ContentBox";
 import SingleButton from "../../components/SingleButton";
 import { SpacerS, SpacerM, SpacerL } from "../../styles/spacing";
 import Layout from "../../components/Layout";
+import { Caption } from "../../styles/fonts";
+import { DatePickerModal } from "react-native-paper-dates";
 
 export default function Landing({ navigation }) {
   const [text, setText] = React.useState("");
   const [date, setDate] = React.useState("");
+
+  const [open, setOpen] = React.useState(false);
+
+  const onDismissSingle = React.useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+
+  const onConfirmSingle = React.useCallback(
+    (params) => {
+      setOpen(false);
+      setDate(params.date);
+      console.log(date);
+    },
+    [setOpen, setDate]
+  );
   return (
     <Layout>
       <Smartie />
@@ -19,14 +36,26 @@ export default function Landing({ navigation }) {
       <SpacerM />
       <NameInput onChangeText={(text) => setText(text)} />
       <SpacerS />
-      <DateInput onChangeText={(date) => setDate(date)} />
+      <DateInput onFocus={() => setOpen(true)} value={date.toString()} />
+      <DatePickerModal
+        mode="single"
+        visible={open}
+        onDismiss={onDismissSingle}
+        date={date}
+        onConfirm={onConfirmSingle}
+        saveLabel="Chọn"
+        label="Chọn Ngày"
+      />
       <SpacerL />
       <SingleButton
-        name="Calculate"
+        name="Xem Kết Quả  Ngay"
         onPress={() => navigation.navigate("Result")}
       />
       <SpacerM />
-      <SingleButton name="Login" onPress={() => navigation.navigate("Main")} />
+
+      <LoginButton onPress={() => navigation.navigate("Main")}>
+        <Title>Bạn đã có tài khoản?</Title>
+      </LoginButton>
     </Layout>
   );
 }
@@ -39,3 +68,13 @@ const DateInput = styled(TextInput).attrs({
   label: "Ngày sinh của bạn?",
   mode: "outlined",
 })``;
+
+const LoginButton = styled.TouchableOpacity`
+  width: "100%";
+  height: "32px";
+`;
+
+const Title = styled(Caption)`
+  color: gray;
+  text-align: center;
+`;
