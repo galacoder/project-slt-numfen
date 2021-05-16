@@ -1,6 +1,7 @@
 // @generated: @expo/next-adapter@2.1.52
 import React from "react";
 import styled from "styled-components/native";
+import { Caption } from "../styles/fonts";
 
 export default function ContentBox(props) {
   return (
@@ -10,7 +11,4 @@ export default function ContentBox(props) {
   );
 }
 
-const Content = styled.Text`
-  font-size: 17px;
-  text-align: center;
-`;
+const Content = styled(Caption)``;

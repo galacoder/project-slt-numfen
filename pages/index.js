@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import { Platform } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -53,8 +54,12 @@ export default function App() {
   );
 }
 
+const isWebView = () => {
+  return Platform.OS === "web";
+};
+
 const Container = styled.View`
   flex: 1;
   margin: 0 auto;
-  width: 100%;
+  width: ${isWebView() ? "465px" : "100%"};
 `;

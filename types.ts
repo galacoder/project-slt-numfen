@@ -26,6 +26,17 @@ export type User = {
   name: String;
   imageUri: String;
   status: String;
+  birthday: Date;
+  lastActive: Date;
+  paid: boolean;
+  email: String;
+  password: String;
+  phoneNumer: String;
+  address: String;
+};
+
+export type Numerology = {
+  soulUrge: String;
 };
 
 export type Message = {

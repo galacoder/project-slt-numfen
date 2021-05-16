@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components/native";
 import { Button, ProgressBar, Colors } from "react-native-paper";
-import { ScrollView } from "react-native";
+import { ScrollView, SafeAreaView } from "react-native";
 
 import Smartie from "../../components/Smartie";
 import ContentBox from "../../components/ContentBox";
@@ -9,21 +9,23 @@ import NotionPage from "../../lib/getNotionPage";
 
 export default function Result({ navigation }) {
   return (
-    <ScrollView>
-      <Pagination />
-      <Smartie />
-      <ContentBox text="This is result page" />
-      <NotionPage />
+    <SafeAreaView>
+      <ScrollView>
+        <Pagination />
+        <Smartie />
+        <ContentBox text="This is result page" />
+        <NotionPage />
 
-      <NavBtnContainer>
-        <BackButton onPress={() => navigation.navigate("Landing")}>
-          Back
-        </BackButton>
-        <NextButton onPress={() => navigation.navigate("Payment")}>
-          Next
-        </NextButton>
-      </NavBtnContainer>
-    </ScrollView>
+        <NavBtnContainer>
+          <BackButton onPress={() => navigation.navigate("Landing")}>
+            Back
+          </BackButton>
+          <NextButton onPress={() => navigation.navigate("Payment")}>
+            Next
+          </NextButton>
+        </NavBtnContainer>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -33,6 +35,9 @@ const Pagination = styled(ProgressBar).attrs({
 
 const NavBtnContainer = styled.View`
   flex-direction: row;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
 `;
 
 const BackButton = styled(Button).attrs({
